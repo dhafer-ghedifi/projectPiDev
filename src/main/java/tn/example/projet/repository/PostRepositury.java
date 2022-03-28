@@ -1,24 +1,26 @@
 package Pi.Spring.Repositury;
 
+
+import java.util.List;
+
 import javax.transaction.Transactional;
+
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import Pi.Spring.Entity.Post;
-import Pi.Spring.Entity.RatingPost;
-
 
 
 @Repository
-public interface RatingRepository  extends CrudRepository<RatingPost, Long> {
+public interface PostRepositury extends CrudRepository<Post, Long>{
 	
-	
-	@Query("select AVG(r.rate) from RatingPost  r LEFT JOIN r.RatePost p  WHERE p.idPost=?1")
+	@Query("SELECT p FROM Post p ")
 	@Transactional
-	public float rateTotale(Long idPost);
+	public List<Post> retrieveAllPosts(Post post);
 	
 
+	
 }
