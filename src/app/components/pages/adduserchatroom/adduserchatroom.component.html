@@ -1,0 +1,23 @@
+<div class="container">
+    <div>
+        <h2>ADD_USER_CHATROOM:</h2>
+    </div>
+    
+    <form >
+        <div  class="col-sm-2 col-md-2 col-lg-2">
+            <label >USERNAME</label>
+            <input type="text" [(ngModel)]="a.UserName" name="a.UserName" class="form-control">
+        </div>
+    
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >EMAIL</label>
+            <input type="text"[(ngModel)]= "a.Email" name="a.Email" class="form-control">
+     </div>  
+    
+    
+    <div class="mt-2">
+    <button type="submit" (click)="addUserChatroom()" class="btn btn-success">Subscribe</button>
+      
+    </div>
+    </form>
+    </div>

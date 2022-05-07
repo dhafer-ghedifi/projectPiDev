@@ -1,0 +1,37 @@
+<div class="container">
+    <div>
+        <h2>ADD_CHATROOM:</h2>
+    </div>
+    
+    <form >
+        <div  class="col-sm-2 col-md-2 col-lg-2">
+            <label >chatroom_ID</label>
+            <input type="text" [(ngModel)]="Chatroom.idChatRoom" name="idChatRoom" class="form-control">
+        </div>
+    
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >Chatroom_Name</label>
+            <input type="text"[(ngModel)]= "Chatroom.chatRoomName" name="chatRoomName" class="form-control">
+     </div>  
+    
+    <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >Chatroom_Capacity</label>
+            <input type="number" [(ngModel)]= "Chatroom.capacity" name="capacity" class="form-control">
+    </div>
+    
+    
+    
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label >Chatroom_Ctegory</label>
+      <input type="text" [(ngModel)]= "Chatroom.chat_category" name="chat_category" class="form-control">
+</div>
+    
+    <div class="mt-2">
+    <button type="submit" (click)="addChatroom()" class="btn btn-success">Ajouter</button>
+      <div> 
+        <h3>{{ message }}</h3>
+      </div>
+    
+    </div>
+    </form>
+    </div>

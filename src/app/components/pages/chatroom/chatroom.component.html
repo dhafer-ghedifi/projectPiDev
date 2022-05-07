@@ -1,0 +1,168 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="side-item">
+                <div class="nav-add-btn">
+                    <a class="default-btn border-radius" (click)="open(content)">Add ChatRoom <i class='bx bx-plus'></i></a>
+                </div>
+            </div>
+                 
+        <div class="search-form">
+            <form>
+                <input type="text" class="input-search" placeholder="Search here..." (change)=" searchChatroom()" name="eventname" [(ngModel)]="chatRoomName"  
+            >
+                <button type="submit"><i class="flaticon-loupe"></i></button>
+            </form>
+        </div>
+        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto">
+                
+                <li class="nav-item"><a routerLink="/" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">Home Page</a></li>
+               
+            </ul>
+
+        </div>
+            <table class="table table-striped">
+                <thead>
+                <tr> <th>Id_chatroom</th><th>ChatRoomName</th> <th>Subscribers</th> <th>isActive</th> <th>capacity</th>  <th>category</th> </tr>
+                </thead>
+                <tbody *ngFor="let chatroom of listChatrooms" >
+                    <tr >
+                        <td>{{chatroom.idChatRoom}}</td>
+                        <td>{{chatroom.chatRoomName}}</td>
+                        <td>{{chatroom. subscribers}}</td>
+                        <td>{{chatroom.isActive}}</td>
+                        <td>{{chatroom.capacity}}</td>
+                        <td>{{chatroom.chat_category}}</td> 
+                        
+                        <td> <a class="btn btn-danger" (click)="open1(content2)">Update <i class='bx bx-plus'></i></a></td>
+                    <td><a class="btn btn-danger" (click)="supprimerchatroom(chatroom)">Delete</a></td>
+                        
+                      <!--  <td><a class="btn btn-success" [routerLink]="['/userchat',chatroom.idChatRoom]">SubScribe</a></td>-->
+
+                      <td> <a class="btn btn-danger" (click)="open1(content1)">subscribe <i class='bx bx-plus'></i></a></td>
+
+                     
+                    </tr>
+                </tbody>
+            </table>
+          
+
+        </div>
+  
+    </div>
+    <ng-template #content let-modal>
+    <div class="container">
+        <div>
+            <h2>ADD_CHATROOM:</h2>
+        </div>
+        
+        <form >
+            <div  class="col-sm-2 col-md-2 col-lg-2">
+                <label >chatroom_ID</label>
+                <input type="text" [(ngModel)]="Chatroom.idChatRoom" name="idChatRoom" class="form-control">
+            </div>
+        
+            <div class="col-sm-4 col-md-4 col-lg-4" >
+                <label >Chatroom_Name</label>
+                <input type="text"[(ngModel)]= "Chatroom.chatRoomName" name="chatRoomName" class="form-control">
+         </div>  
+        
+        <div class="col-sm-2 col-md-2 col-lg-2">
+                <label >Chatroom_Capacity</label>
+                <input type="number" [(ngModel)]= "Chatroom.capacity" name="capacity" class="form-control">
+        </div>
+        
+        
+        
+        <div class="col-sm-2 col-md-2 col-lg-2">
+          <label >Chatroom_Ctegory</label>
+          <input type="text" [(ngModel)]= "Chatroom.chat_category" name="chat_category" class="form-control">
+    </div>
+        
+        <div class="mt-2">
+        <button type="submit" (click)="addChatroom()" class="btn btn-success">Ajouter</button>
+          <div> 
+          
+          </div>
+        
+        </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+          </div>
+</ng-template>
+<ng-template #content1 let-modal>
+    <div class="container">
+        <div>
+            <h2>ADD_USER_CHATROOM:</h2>
+        </div>
+        
+        <form >
+            <div  class="col-sm-2 col-md-2 col-lg-2">
+                <label >USERNAME</label>
+                <input type="text" [(ngModel)]="a.UserName" name="a.UserName" class="form-control">
+            </div>
+        
+            <div class="col-sm-4 col-md-4 col-lg-4" >
+                <label >EMAIL</label>
+                <input type="text"[(ngModel)]= "a.Email" name="a.Email" class="form-control">
+         </div>  
+        
+        
+        <div class="mt-2">
+        <button type="submit" (click)="addUserChatroom()" class="btn btn-success">Subscribe</button>
+          
+        </div>
+        </form>
+        </div>
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+          </div>
+</ng-template>
+<ng-template #content2 let-modal>
+    <div class="container">
+        <div>
+            <h2>UPDATE_CHATROOM:</h2>
+        </div>
+        
+            
+        <form >
+            <div  class="col-sm-2 col-md-2 col-lg-2">
+                <label >chatroom_ID</label>
+                <input type="text" [(ngModel)]="Chatroom.idChatRoom" name="idChatRoom" class="form-control">
+            </div>
+        
+            <div class="col-sm-4 col-md-4 col-lg-4" >
+                <label >Chatroom_Name</label>
+                <input type="text"[(ngModel)]= "Chatroom.chatRoomName" name="chatRoomName" class="form-control">
+         </div>  
+        
+        <div class="col-sm-2 col-md-2 col-lg-2">
+                <label >Chatroom_Capacity</label>
+                <input type="number" [(ngModel)]= "Chatroom.capacity" name="capacity" class="form-control">
+        </div>
+        
+        
+        
+        <div class="col-sm-2 col-md-2 col-lg-2">
+          <label >Chatroom_Ctegory</label>
+          <input type="text" [(ngModel)]= "Chatroom.chat_category" name="chat_category" class="form-control">
+    </div>
+        
+        <div class="mt-2">
+        <button type="submit" (click)="updateChatroom() " class="btn btn-success">Update</button>
+          <div> 
+          
+          </div>
+        
+        </div>
+        </form>
+        </div>
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+          </div>
+</ng-template>
